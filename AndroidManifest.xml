@@ -1,0 +1,33 @@
+<!--
+    Author     : Ivan Carballo Fernandez (icf1e11@soton.ac.uk)
+    Project	   : CpuFrequencies - Android Service that works as a CPU profiler for the time_in_state file.
+    License	   : Copyright (C) 2012 Ivan Carballo.
+    Date       : 11-08-2012
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.byivan.cpufrequencies"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <service
+            android:name=".CpuProfilerService"
+            android:permission="android.permission.WRITE_EXTERNAL_STORAGE" >
+            <intent-filter>
+                <action android:name="com.byivan.cpufrequencies.action.PROFILING_TIME_IN_STATE" />
+
+                <category android:name="com.byivan.cpufrequencies.category.DEFAULT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
